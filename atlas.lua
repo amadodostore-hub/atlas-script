@@ -1,14 +1,18 @@
+-- MAIN SCRIPT (atlas.lua)
 local Player = game.Players.LocalPlayer
+local HttpService = game:GetService("HttpService")
+
+-- 1. Grab the key from the executor's memory
+local enteredKey = _G.script_key 
+
+-- 2. URL of your Keys file (Make sure this link is also RAW)
 local KeyListURL = "https://raw.githubusercontent.com/amadodostore-hub/atlas-script/refs/heads/main/keys.lua"
 
--- 1. Grab the key from the loader
-local enteredKey = _G.script_key or ""
-
--- 2. Check if the key is valid
 local function validate()
-    local success, keyListRaw = pcall(function() return game:HttpGet(KeyListURL) end)
+    local success, response = pcall(function() return game:HttpGet(KeyListURL) end)
     if success then
-        local validKeys = loadstring(keyListRaw)()
+        -- This part assumes your keys.lua returns a table like: return {"123", "456"}
+        local validKeys = loadstring(response)()
         for _, key in pairs(validKeys) do
             if tostring(key) == tostring(enteredKey) then
                 return true
@@ -18,17 +22,13 @@ local function validate()
     return false
 end
 
--- 3. Run or Kick
 if validate() then
-    print("Astral Hub: Key Verified!")
+    print("Atlas Hub: Access Granted!")
     
-    -------------------------------------------------------
-    -- PASTE YOUR WHOLE ASTRAL HOVER/SPEED SCRIPT BELOW --
-    -------------------------------------------------------
+    -- [PASTE YOUR HOVER/SPEED CODE BELOW THIS LINE]
+    -- Example:
+    print("Script is now running...")
     
-    local pushSpeed, hoverHeight, active = 29, 12, false
-    -- (The rest of your hover logic goes here...)
-
 else
-    Player:Kick("Invalid Key! Please purchase or get a key from the owner.")
+    Player:Kick("Atlas Hub: Invalid or Missing Key!")
 end
