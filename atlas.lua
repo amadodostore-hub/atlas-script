@@ -6,7 +6,7 @@ local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 
 -- 1. KEY SYSTEM CONFIGURATION
-local KeyListURL = "PASTE_YOUR_RAW_KEYS_LUA_LINK_HERE" -- Replace this!
+local KeyListURL = "https://raw.githubusercontent.com/amadodostore-hub/atlas-script/refs/heads/main/keys.lua" -- Replace this!
 local enteredKey = _G.script_key or ""
 
 local function validate()
