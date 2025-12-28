@@ -3,7 +3,7 @@ local Player = game.Players.LocalPlayer
 local HttpService = game:GetService("HttpService")
 
 -- CONFIGURATION
-local KeyListURL = ""
+local KeyListURL = "https://raw.githubusercontent.com/amadodostore-hub/atlas-script/refs/heads/main/keys.lua"
 local script_key = _G.script_key or ""
 
 local function validate()
