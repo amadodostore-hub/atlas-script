@@ -1,5 +1,5 @@
 local Player = game.Players.LocalPlayer
-local KeyListURL = "PASTE_YOUR_RAW_KEYS_LINK_HERE"
+local KeyListURL = "https://raw.githubusercontent.com/amadodostore-hub/atlas-script/refs/heads/main/keys.lua"
 
 -- 1. Grab the key from the loader
 local enteredKey = _G.script_key or ""
